@@ -19,7 +19,6 @@ function max(nums) {
       maxKey = j;
     }
   }
-
   return {
     max: max,
     maxKey: maxKey
