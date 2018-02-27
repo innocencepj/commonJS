@@ -75,7 +75,26 @@ function deepClone(data){
   return obj;
 }
 
-
+/* 
+	6.一个柱子上串了n个半径不同的大饼，现要求大的在下小的在上重排位置。
+  规则：每次选m个拿起来反转再放上去，问是否可以实现重排要求。
+*/
+var result = [];
+function reSort(arr){
+  for(var i=0; i<arr.length; i++){
+    if(arr[i] == Math.min.apply(null, arr)){
+      var temp = arr.slice(0, i+1);
+      temp.reverse();
+      var min = temp.shift();
+      result.push(min);
+      arr.splice(i, 1);
+    }
+    if(arr.length){
+      reSort(arr);
+    }
+  }
+  return result;
+}
 
 
 
